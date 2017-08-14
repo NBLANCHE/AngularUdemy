@@ -5,5 +5,10 @@ import { Component } from '@angular/core'; // fetch the definition of Component 
     templateUrl: './server.component.html'
 })  // adding a decorator, and giving it a javascript object to configure it i.e. metadata 
 export class ServerComponent {
+    serverId = 10;
+    serverStatus = 'offline';
 
+    getServerStatus() {
+        return this.serverStatus;
+    }
 }
