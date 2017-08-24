@@ -11,12 +11,19 @@
 <button class="btn btn-primary" [disabled] = "!allowNewServer" (click) = "onCreateServer()">Add Server</button>
 <!--> this is binding allowNewSever to the disabled property (property binding)-->
 <!--> below is string interpolation -->
-<p>{{ allowNewServer }}</p>
+<!-- <p>{{ allowNewServer }}</p> -->
 <!--> below is property binding for innerText -->
 <!-- <p [innerText] = "allowNewServer"></p> -->
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
 <hr>
-<app-server></app-server>
+ <p *ngIf="serverCreated; else noServer">Server was created, servername is {{ serverName }} </p> 
+<!-- <p *ngIf="serverCreated">Server was created, servername is {{ serverName}} </p> -->
+<!-- the hash tag is a local reference -->
+<ng-template #noServer >
+    <p>
+    No server was created 
+    </p>
+</ng-template>
 <app-server></app-server>
 <hr>
 <app-success-alert></app-success-alert>
